@@ -1,0 +1,44 @@
+{
+    "name": "Niconyx",
+    "short_name": "Niconyx",
+    "start_url": "/",
+    "theme_color": "#1a5fb4",
+    "background_color": "#000000",
+    "display": "fullscreen",
+    "scope": "/",
+    "orientation": "any",
+    "dir": "ltr",
+    "lang": "en",
+    "description": "Niconyx",
+    "prefer_related_applications": false,
+    "categories": ["design", "developer", "games", "education", "entertainment"],
+    "shortcuts" : [
+	  {
+ 	   "name": "Home",
+ 	   "url": "/index.html",
+ 	   "icons": "favicon.svg",
+ 	   "description": "Homepage"
+	  }
+	],
+    "icons": [
+	{
+		"src": "favicon.svg",
+		"sizes": "any",
+		"type": "image/svg+xml",
+		"purpose": "maskable"
+	},
+	{
+		"src": "favicon.svg",
+		"sizes": "any",
+		"type": "image/svg+xml",
+		"purpose": "monochrome"
+	},
+	{
+		"src": "favicon.svg",
+		"sizes": "any",
+		"type": "image/svg+xml",
+		"purpose": "any"
+	}
+    ]
+}
+
