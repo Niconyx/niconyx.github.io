@@ -1,4 +1,4 @@
 User-agent: *
-Disallow:
+Disallow: 
 Disallow: /cgi-bin/
-Sitemap: https://kushagrakarira.com/sitemap.xml
+Sitemap: https://niconyx.com/sitemap.xml
