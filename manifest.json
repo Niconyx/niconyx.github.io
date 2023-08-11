@@ -1,18 +1,1 @@
-{
-  "short_name": "Niconyx",
-  "name": "Niconyx",
-  "icons": [
-    {
-      "src": "https://niconyx.com/assets/img/favicon.png",
-      "type": "image/png",
-      "sizes": "512x512",
-      "purpose": "any maskable"
-    }
-  ],
-  "start_url": "index.html",
-  "background_color": "#000000",
-  "theme_color": "#ffffff",
-  "display": "standalone",
-  "orientation": "portrait"
-}
-
+{"short_name":"Niconyx","name":"Niconyx","icons":[{"src":"https://niconyx.com/assets/img/favicon.png","type":"image/png","sizes":"3125x3125","purpose":"any maskable"},{"src":"https://niconyx.com/assets/img/favicon.png","type":"image/png","sizes":"3125x3125","purpose":"any maskable"}],"start_url":"/index.html","background_color":"#000000","display":"fullscreen","orientation":"portrait"}
