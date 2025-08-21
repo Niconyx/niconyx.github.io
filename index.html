@@ -1,82 +1,478 @@
-<!DOCTYPE html><html data-bs-theme="auto" lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><title>Home - Brand</title><meta name="theme-color" content="#000000"><link rel="canonical" href="https://niconyx.com/"><meta property="og:url" content="https://niconyx.com/"><meta name="twitter:description" content="Niconyx"><meta property="og:type" content="website"><meta name="twitter:card" content="summary"><meta property="og:image" content="https://niconyx.com/assets/img/favicon.png"><meta name="twitter:image" content="https://niconyx.com/assets/img/favicon.png"><meta name="twitter:title" content="Niconyx"><meta name="description" content="Niconyx">
-			<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","name":"Niconyx","url":"https://niconyx.com/"}</script><script>
-(function() {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niconyx - Media & Marketing Solutions</title>
+    
+    <link rel="icon" href="https://niconyx.com/assets/img/Niconyx.svg" type="image/svg+xml">
 
-	// JavaScript snippet handling Dark/Light mode switching
+    <meta name="description" content="Niconyx Media delivers top-notch media services to elevate your brand. From content creation to media management and strategy, we help your business grow.">
+    <meta property="og:title" content="Niconyx - Media & Marketing Solutions">
+    <meta property="og:description" content="Partner with Niconyx to elevate your brand with expert media services, content creation, and strategic management.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://niconyx.com/">
+    <meta property="og:image" content="https://niconyx.com/assets/img/og-image-preview.png">
 
-	const getStoredTheme = () => localStorage.getItem('theme');
-	const setStoredTheme = theme => localStorage.setItem('theme', theme);
-	const forcedTheme = document.documentElement.getAttribute('data-bss-forced-theme');
+    <style>
+        /* Modern CSS with nesting, logical properties, and future-facing features */
+        :root {
+            --color-dark-bg: #0a0a0a;
+            --color-text-light: #e5e7eb;
+            --color-text-muted: #9ca3af;
+            --color-blue-600: #2563eb;
+            --color-blue-700: #1d4ed8;
+            --color-gray-700: #374151;
+            --color-gray-800: #1f2937;
+            --color-gray-900: #111827;
+            --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+        }
 
-	const getPreferredTheme = () => {
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-		if (forcedTheme) return forcedTheme;
+        html {
+            scroll-behavior: smooth;
+        }
 
-		const storedTheme = getStoredTheme();
-		if (storedTheme) {
-			return storedTheme;
-		}
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-dark-bg);
+            color: var(--color-text-light);
+            line-height: 1.6;
+            font-synthesis: none;
+            text-rendering: optimizeLegibility;
+        }
+        
+        h1, h2, h3, h4 {
+            color: #ffffff;
+            font-weight: 700;
+            text-wrap: balance;
+        }
+        h1 { font-size: clamp(2.25rem, 5vw + 1rem, 3.75rem); line-height: 1.2; }
+        h2 { font-size: clamp(1.875rem, 4vw + 1rem, 2.25rem); }
+        h3 { font-size: 1.25rem; }
+        p { color: var(--color-text-muted); }
+        a { color: inherit; text-decoration: none; }
 
-		const pageTheme = document.documentElement.getAttribute('data-bs-theme');
+        .container {
+            width: min(1280px, 100% - 3rem);
+            margin-inline: auto;
+        }
+        
+        header {
+            background-color: hsl(0 0% 0% / 0.6);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            inset-block-start: 0;
+            inset-inline: 0;
+            z-index: 50;
+            border-block-end: 1px solid var(--color-gray-800);
 
-		if (pageTheme) {
-			return pageTheme;
-		}
+            nav {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding-block: 1rem;
+            }
 
-		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-	}
+            .logo-link {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                
+                img { height: 1.5rem; }
+                span { font-size: 1.25rem; font-weight: 700; }
+            }
 
-	const setTheme = theme => {
-		if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-			document.documentElement.setAttribute('data-bs-theme', 'dark');
-		} else {
-			document.documentElement.setAttribute('data-bs-theme', theme);
-		}
-	}
+            .desktop-menu {
+                display: none;
+                @media (width >= 768px) {
+                    display: flex;
+                    align-items: center;
+                    gap: 2rem;
+                }
+                a { transition: color 0.3s; &:hover { color: #ffffff; } }
+            }
 
-	setTheme(getPreferredTheme());
+            .cta-button {
+                background-color: var(--color-blue-600);
+                color: #ffffff;
+                font-weight: 600;
+                padding: 0.5rem 1.25rem;
+                border-radius: 0.5rem;
+                transition: all 0.3s;
+                &:hover {
+                    background-color: var(--color-blue-700);
+                    transform: scale(1.05);
+                }
+            }
+        }
 
-	const showActiveTheme = (theme, focus = false) => {
-		const themeSwitchers = [].slice.call(document.querySelectorAll('.theme-switcher'));
+        #home {
+            position: relative;
+            padding-block: 8rem 5rem;
+            text-align: center;
+            overflow: hidden;
+            @media (width >= 768px) { padding-block: 12rem 8rem; }
 
-		if (!themeSwitchers.length) return;
+            &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background-color: var(--color-dark-bg);
+                mask-image: radial-gradient(ellipse at center, transparent 20%, black);
+            }
 
-		document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
-			element.classList.remove('active');
-			element.setAttribute('aria-pressed', 'false');
-		});
+            .content-wrapper { 
+                position: relative; 
+                h1 { margin-block-end: 1rem; font-weight: 800; }
+                p { max-width: 48rem; margin: 0 auto 2rem; font-size: clamp(1rem, 2vw + 0.5rem, 1.25rem); }
+            }
+            .button-group {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
 
-		for (const themeSwitcher of themeSwitchers) {
+                a {
+                    font-weight: 600;
+                    padding: 0.75rem 2rem;
+                    border-radius: 0.5rem;
+                    transition: all 0.3s;
+                    &:hover { transform: scale(1.05); }
+                }
+                .primary-btn { background-color: var(--color-blue-600); color: #ffffff; &:hover { background-color: var(--color-blue-700); } }
+                .secondary-btn { background-color: var(--color-gray-700); color: #ffffff; &:hover { background-color: #4b5563; } }
+            }
+        }
 
-			const btnToActivate = themeSwitcher.querySelector('[data-bs-theme-value="' + theme + '"]');
+        .section {
+            padding-block: 5rem;
+            .section-title {
+                text-align: center;
+                margin-block-end: 3rem;
+                h2 { font-weight: 700; }
+                p { font-size: 1.125rem; margin-block-start: 0.5rem; }
+            }
+        }
 
-			if (btnToActivate) {
-				btnToActivate.classList.add('active');
-				btnToActivate.setAttribute('aria-pressed', 'true');
-			}
-		}
-	}
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            @media (width >= 768px) { grid-template-columns: repeat(2, 1fr); }
+        }
 
-	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-		const storedTheme = getStoredTheme();
-		if (storedTheme !== 'light' && storedTheme !== 'dark') {
-			setTheme(getPreferredTheme());
-		}
-	});
+        #services {
+            background-color: #000;
+            .grid-container {
+                @media (width >= 1024px) { grid-template-columns: repeat(3, 1fr); }
+            }
+        }
+        
+        .placeholder {
+            text-align: center;
+            color: var(--color-text-muted);
+            border: 2px dashed var(--color-gray-700);
+            border-radius: 0.75rem;
+            padding: 4rem 1rem;
+        }
 
-	window.addEventListener('DOMContentLoaded', () => {
-		showActiveTheme(getPreferredTheme());
+        #about .grid-container { align-items: center; }
 
-		document.querySelectorAll('[data-bs-theme-value]')
-			.forEach(toggle => {
-				toggle.addEventListener('click', (e) => {
-					e.preventDefault();
-					const theme = toggle.getAttribute('data-bs-theme-value');
-					setStoredTheme(theme);
-					setTheme(theme);
-					showActiveTheme(theme);
-				})
-			})
-	});
-})();
-</script><link rel="icon" type="image/png" sizes="3125x3125" href="/assets/img/favicon.png"><link rel="icon" type="image/png" sizes="3125x3125" href="/assets/img/favicon.png"><link rel="icon" type="image/png" sizes="3125x3125" href="/assets/img/favicon.png"><link rel="icon" type="image/png" sizes="3125x3125" href="/assets/img/favicon.png"><link rel="icon" type="image/png" sizes="3125x3125" href="/assets/img/favicon.png"><link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css"><link rel="manifest" href="/manifest.json"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter&amp;display=swap"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></head><body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54"><nav class="navbar fixed-top bg-dark navbar-dark" id="mainNav"><div class="container"><a class="navbar-brand" href="#page-top"><img src="/assets/img/Niconyx.svg" height="20 px" alt="Niconyx"></a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars text-end"></i></button><div class="collapse navbar-collapse" id="navbarResponsive"><ul class="navbar-nav ms-auto text-uppercase"><li class="nav-item"></li><li class="nav-item"><a class="nav-link" href="#about" style="font-family: Inter, sans-serif;">About Us</a><a class="nav-link" href="#services" style="font-family: Inter, sans-serif;">Services</a></li><li class="nav-item"><a class="nav-link" href="#career" style="font-family: Inter, sans-serif;">careerS</a></li><li class="nav-item"></li><li class="nav-item"><a class="nav-link" href="#contact" style="font-family: Inter, sans-serif;">Contact</a></li></ul><ul class="navbar-nav"><li class="nav-item"></li><li class="nav-item"></li></ul></div></div></nav><header class="masthead" style="background-image:url('/assets/img/header-bg.jpg');"><div class="container"><div class="intro-text"><div class="intro-lead-in"></div><div class="intro-heading text-uppercase"><span style="font-family: Inter, sans-serif;">We bring imagination to life !</span></div><a class="btn btn-primary btn-xl text-uppercase" role="button" href="#services" style="color: rgb(30,30,30);font-family: Inter, sans-serif;">Tell mE more</a></div></div></header><section id="about" style="margin-bottom: -99px;"><div class="container"><div class="row"><div class="col-lg-12 text-center"><h2 class="text-uppercase" style="font-family: Inter, sans-serif;">About US</h2><h3 class="text-center text-muted section-subheading" style="font-family: Inter, sans-serif;">Welcome to Niconyx Media !<br><br>At Niconyx, we are dedicated to providing top-notch media services that will elevate your brand to new heights. With our expertise and passion for media, we strive to deliver exceptional results that exceed your expectations.<br><br>Our team of creative professionals is committed to staying ahead of the curve and embracing the latest trends in media. From content creation to media management and overall strategy, we are equipped with the knowledge and skills to ensure your brand stands out in the crowded media landscape.<br><br>We understand the challenges of managing media in today's digital age, and that's why we are here to make it easy for you. Our flexible packages can be tailored to your specific needs, whether you require assistance with a one-time campaign or ongoing media support.<br><br>Let us handle your media needs, while you focus on what you do best – growing your business. Get in touch with us today to discover how we can help you make your mark in the media world!</h3></div></div><div class="row"><div class="col-lg-12"><ul class="list-group timeline"></ul></div></div></div></section><section id="services" style="padding-top: 0px;"><div class="container"><div class="row"><div class="col-lg-12 text-center"><h2 class="text-uppercase section-heading" style="font-family: Inter, sans-serif;">Services</h2><h3 class="text-muted section-subheading" style="font-family: Inter, sans-serif;"><span style="color: var(--bs-secondary-color);">We specializes in custom strategies tailored to your brand's business goals. We will create engaging content that helps businesses grow.</span></h3></div></div><div class="row text-center"><div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-instagram fa-stack-1x fa-inverse"></i></span><h4 class="section-heading" style="font-family: Inter, sans-serif;">Instagram Marketing</h4></div><div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></span><h4 class="section-heading" style="font-family: Inter, sans-serif;">Facebook Marketing</h4></div><div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-linkedin fa-stack-1x fa-inverse"></i></span><h4 class="section-heading" style="font-family: Inter, sans-serif;">LinkedIn Marketing</h4></div><div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span><h4 class="section-heading" style="font-family: Inter, sans-serif;">Twitter Marketing</h4></div></div></div></section><section class="bg-light" id="portfolio" style="background: linear-gradient(var(--bs-body-bg) 98%, rgb(51,51,51) 100%);"><div class="container"><div class="row"><div class="col-lg-12 text-center"><h2 class="text-uppercase section-heading" style="font-family: Inter, sans-serif;">CareerS</h2><h3 class="text-muted section-subheading" style="font-family: Inter, sans-serif;">Are you the type of person who wants to impact the world ? Niconyx is the right place for you, We change the way world thinks. Apply NOW to Make it Happen</h3><a class="btn btn-primary btn-xl text-uppercase" role="button" id="sendMessageButton" href="mailto:NiconyxIndia@gmail.com?subject=I'd%20like%20to%20Join&amp;body=Hi%2C%20My%20name%20is%20%3Cname%3E%2C%0Aand%20i'd%20like%20to%20join%20for%20%3Cposition%3E%2C%0A%0AMy%20resume%20is%20attached%20to%20this%20email." style="color: var(--bs-body-bg);font-family: Inter, sans-serif;">#BETHEREASON</a></div></div></div></section><section id="contact" style="background-image:url('/assets/img/map-image.png');"><div class="container"><div class="row"><div class="col-lg-12 text-center"><h2 class="text-uppercase section-heading" style="font-family: Inter, sans-serif;">Contact Us</h2></div></div><div class="row"><div class="col-lg-12"><form id="contactForm" name="contactForm"><div class="row"><div class="col-md-6"><div class="form-group mb-3"><input class="form-control" type="text" id="name" placeholder="Your Name *" required="" style="font-family: Inter, sans-serif;"><small class="form-text text-danger flex-grow-1 lead"></small></div><div class="form-group mb-3"><input class="form-control" type="email" id="email" placeholder="Your Email *" required="" style="font-family: Inter, sans-serif;"><small class="form-text text-danger lead"></small></div><div class="form-group mb-3"><input class="form-control" type="tel" placeholder="Your Phone *" required="" style="font-family: Inter, sans-serif;"><small class="form-text text-danger lead"></small></div></div><div class="col-md-6"><div class="form-group mb-3"><textarea class="form-control" id="message" placeholder="Your Message *" required="" style="font-family: Inter, sans-serif;"></textarea><small class="form-text text-danger lead"></small></div></div><div class="w-100"></div><div class="col-lg-12 text-center"><div id="success"></div><a class="btn btn-primary text-uppercase btn-xl" role="button" href="mailto:NiconyxIndia@gmail.com" id="sendMessageButton-1" style="font-family:Inter, sans-serif;font-weight:bold;">Send Message</a></div></div></form></div></div></div></section><footer><div class="container"><div class="row"><div class="col-md-4"><span class="copyright" style="font-family: Inter, sans-serif;">Copyright&nbsp;© Niconyx Mediaworks LLP 2023</span></div><div class="col-md-4"><ul class="list-inline social-buttons"><li class="list-inline-item"><a href="https://www.instagram.com/niconyxmedia/"><i class="fa fa-instagram"></i></a></li><li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li><li class="list-inline-item"><a href="https://www.linkedin.com/company/niconyx-media/"><i class="fa fa-linkedin"></i></a></li></ul></div><div class="col-md-4"><ul class="list-inline quicklinks"><li class="list-inline-item"><a href="#" style="font-family: Inter, sans-serif;">Privacy Policy</a></li><li class="list-inline-item"><a href="#" style="font-family: Inter, sans-serif;">Terms of Use</a></li></ul></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script><script src="/assets/js/script.min.js"></script></body></html>
+        #contact {
+            background-color: #000;
+            form {
+                max-width: 42rem;
+                margin-inline: auto;
+                display: grid;
+                gap: 1.5rem;
+
+                label { font-size: 0.875rem; font-weight: 500; }
+                .form-input {
+                    width: 100%;
+                    background-color: var(--color-gray-900);
+                    border: 1px solid var(--color-gray-700);
+                    color: #ffffff;
+                    border-radius: 0.5rem;
+                    padding: 0.75rem;
+                    transition: border-color 0.3s, box-shadow 0.3s;
+                    &:focus-visible {
+                        outline: 2px solid var(--color-blue-600);
+                        outline-offset: 2px;
+                        border-color: transparent;
+                    }
+                }
+                button {
+                    background-color: var(--color-blue-600);
+                    color: #ffffff;
+                    font-weight: 600;
+                    padding: 0.75rem 2.5rem;
+                    border-radius: 0.5rem;
+                    transition: background-color 0.3s;
+                    border: none;
+                    cursor: pointer;
+                    width: 100%;
+                    &:hover { background-color: var(--color-blue-700); }
+                    @media (width >= 768px) { width: auto; }
+                }
+            }
+            #form-status { text-align: center; margin-block-start: 1.5rem; min-height: 1.5rem; }
+        }
+
+        footer {
+            background-color: hsl(222 22% 11% / 0.5);
+            border-block-start: 1px solid var(--color-gray-800);
+            .footer-content {
+                padding-block: 2rem;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center;
+                gap: 1rem;
+            }
+            p, a { font-size: 0.875rem; color: var(--color-text-muted); }
+            .social-links { display: flex; gap: 1.5rem; }
+            a:hover { color: #ffffff; }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(to right, #34d399, #60a5fa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .glass-card {
+            background: hsl(0 0% 100% / 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid hsl(0 0% 100% / 0.1);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            transition: all 0.3s;
+            &:hover { border-color: var(--color-blue-600); transform: translateY(-0.5rem); }
+            
+            h3 { margin-block-end: 0.75rem; }
+            .icon-wrapper {
+                display: grid;
+                place-content: center;
+                height: 4rem;
+                width: 4rem;
+                border-radius: 50%;
+                margin-block-end: 1.5rem;
+                svg { height: 2rem; width: 2rem; }
+            }
+            .icon-blue { background-color: hsl(220 81% 55% / 0.2); color: #60a5fa; }
+            .icon-green { background-color: hsl(145 63% 49% / 0.2); color: #4ade80; }
+            .icon-purple { background-color: hsl(258 90% 66% / 0.2); color: #a78bfa; }
+        }
+
+        #about ul {
+            list-style: none;
+            display: grid;
+            gap: 1rem;
+            li {
+                display: flex;
+                gap: 0.75rem;
+                align-items: start;
+                svg { flex-shrink: 0; margin-block-start: 0.25rem; color: #60a5fa; }
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo-link">
+                    <img src="https://niconyx.com/assets/img/Niconyx.svg" alt="Niconyx Logo">
+                    <span>Niconyx</span>
+                </a>
+                <div class="desktop-menu">
+                    <a href="#services">Services</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#about">About Us</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <a href="#contact" class="cta-button">Let's Talk</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="content-wrapper container">
+                <h1><span class="gradient-text">We bring imagination to life !</span></h1>
+                <p>We are a dedicated team of creative professionals specializing in end-to-end media services, turning your brand's vision into impactful results.</p>
+                <div class="button-group">
+                    <a href="#services" class="primary-btn">Explore Our Services</a>
+                    <a href="#portfolio" class="secondary-btn">View Our Work</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Core Expertise</h2>
+                    <p>We offer a complete suite of services to grow your brand's presence.</p>
+                </div>
+                <div class="grid-container">
+                    <div class="glass-card">
+                        <div class="icon-wrapper icon-blue">
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.196-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
+                        </div>
+                        <h3>Content Creation</h3>
+                        <p>Engaging and high-quality content tailored to your brand's voice and audience, designed to capture attention and drive results.</p>
+                    </div>
+                    <div class="glass-card">
+                        <div class="icon-wrapper icon-green">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                        </div>
+                        <h3>Media Management</h3>
+                        <p>Comprehensive management of your media channels, ensuring consistent messaging and strategic growth across all platforms.</p>
+                    </div>
+                    <div class="glass-card">
+                         <div class="icon-wrapper icon-purple">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.368a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" /></svg>
+                        </div>
+                        <h3>Overall Strategy</h3>
+                        <p>Custom-built media strategies tailored to your business goals, designed to navigate the crowded media landscape and deliver success.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="portfolio" class="section" style="background-color: hsl(222 22% 11% / 0.5);">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Recent Projects</h2>
+                    <p>We deliver exceptional results for our clients.</p>
+                </div>
+                <div class="placeholder">
+                    <p style="font-size: 1.125rem;">Our project case studies are coming soon.</p>
+                    <p>We're currently preparing detailed write-ups of our successful client projects.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <div class="grid-container">
+                    <div>
+                        <h2>About Niconyx Media</h2>
+                        <p>At Niconyx, we are dedicated to providing top-notch media services that will elevate your brand to new heights. With our expertise and passion for media, we strive to deliver exceptional results that exceed your expectations.</p>
+                        <p>Our team of creative professionals is committed to staying ahead of the curve and embracing the latest trends in media. From content creation to media management and overall strategy, we are equipped with the knowledge and skills to ensure your brand stands out in the crowded media landscape.</p>
+                        <p>Let us handle your media needs, while you focus on what you do best – growing your business. Get in touch with us today to discover how we can help you make your mark in the media world!</p>
+                    </div>
+                    <div class="glass-card">
+                        <h3>Our Approach</h3>
+                        <ul>
+                            <li>
+                                <svg style="width:1.5rem; height:1.5rem;" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <div>
+                                    <h4>Client Partnership</h4>
+                                    <p>Your success is our success. We integrate with your team to achieve shared goals.</p>
+                                </div>
+                            </li>
+                             <li>
+                                <svg style="width:1.5rem; height:1.5rem;" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <div>
+                                    <h4>Creative Excellence</h4>
+                                    <p>We are committed to the highest standards of creativity and content quality.</p>
+                                </div>
+                            </li>
+                             <li>
+                                <svg style="width:1.5rem; height:1.5rem;" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <div>
+                                    <h4>Flexible Packages</h4>
+                                    <p>We tailor our services to your specific needs, from one-time campaigns to ongoing support.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Let's Build Your Brand</h2>
+                    <p>Have a project in mind or a media challenge? We'd love to hear about it.</p>
+                </div>
+                <form id="contactForm">
+                    <div class="grid-container">
+                        <div>
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required class="form-input">
+                        </div>
+                        <div>
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required class="form-input">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required class="form-input">
+                    </div>
+                    <div>
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required class="form-input"></textarea>
+                    </div>
+                    <div style="text-align: center;">
+                        <button type="submit">Send Message</button>
+                    </div>
+                </form>
+                <div id="form-status"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Niconyx Media. All Rights Reserved.</p>
+                <div class="social-links">
+                    <a href="#"><svg style="height:1.5rem; width:1.5rem;" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.206v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.336 9.905H4.002v-8.59h2.671v8.59zM17.638 2H6.362A4.362 4.362 0 002 6.362v11.276A4.362 4.362 0 006.362 22h11.276A4.362 4.362 0 0022 17.638V6.362A4.362 4.362 0 0017.638 2z" clip-rule="evenodd" /></svg></a>
+                    <a href="#"><svg style="height:1.5rem; width:1.5rem;" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Modern JavaScript (ESM could be used in a real project)
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactForm = document.getElementById('contactForm');
+            const formStatus = document.getElementById('form-status');
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    formStatus.textContent = 'Sending...';
+                    formStatus.style.color = '#60a5fa'; // Blue
+
+                    // Simulate a success message.
+                    setTimeout(() => {
+                        formStatus.textContent = 'Thank you! We will get back to you shortly.';
+                        formStatus.style.color = '#4ade80'; // Green
+                        contactForm.reset();
+                        setTimeout(() => formStatus.textContent = '', 3000);
+                    }, 1500);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
